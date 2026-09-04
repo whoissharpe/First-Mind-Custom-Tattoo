@@ -1,5 +1,6 @@
-raw/
-gen/
+# working folders at the repo root only, not assets/img/gen
+/raw/
+/gen/
 .DS_Store
 Thumbs.db
 *.log
