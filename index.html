@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/light/style.css">
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="preload" as="image" href="assets/img/gen/flash-green.webp" fetchpriority="high">
-<link rel="preload" as="image" href="assets/img/logo/lockup-flash.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/gen/flash-ink.webp" fetchpriority="high">
 
 <script type="application/ld+json">
 {
@@ -51,21 +51,14 @@
 <a class="skip" href="#main">Skip to content</a>
 <div class="grain" aria-hidden="true"></div>
 
-<!-- Firstmind mark. An FM monogram drawn as outlines in Anton's condensed, flat-terminal
-     proportions, so it needs no webfont and speaks the same type voice as the FIRSTMIND
-     wordmark. The shop badge's radial burst was tried first and dropped: a green circle
-     cut with rays reads as a lime slice at every size. -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="fm-mark" viewBox="0 0 64 64">
-    <circle cx="32" cy="32" r="32" fill="#16181a"/><circle cx="32" cy="32" r="30.4" fill="none" stroke="#8cc63f" stroke-width="1.6"/><g fill="#f0ece1"><path d="M14.6 46 V20 H29.4 V26.4 H21.0 V30.6 H28.0 V36.8 H21.0 V46 Z"/><path d="M32.2 46 V20 H37.6 L41.2 33.0 L44.8 20 H50.2 V46 H44.8 V33.2 L42.7 39.6 H39.7 L37.6 33.2 V46 Z"/></g>
-  </symbol>
-</svg>
+<!-- The FM monogram survives only as the favicon: the tattooed-letter lockup is a
+     wide raster image and cannot render in a 16px browser tab. See assets/img/favicon.svg. -->
 
 <header class="nav">
   <nav class="nav__pill" aria-label="Primary">
-    <a class="brand" href="#top">
-      <svg aria-hidden="true"><use href="#fm-mark"></use></svg>
-      <b>Firstmind</b>
+    <a class="brand" href="#top" aria-label="Firstmind Custom Tattoo, back to top">
+      <img src="assets/img/logo/lockup-flash.webp" alt="Firstmind Custom Tattoo"
+           width="1500" height="557">
     </a>
     <div class="nav__links">
       <a href="#studio">Studio</a>
@@ -99,10 +92,9 @@
   <div class="hero__veil" aria-hidden="true"></div>
 
   <div class="hero__inner">
-    <h1 class="hero__word">
-      <img src="assets/img/logo/lockup-flash.webp" alt="Firstmind Custom Tattoo"
-           width="1500" height="557" fetchpriority="high">
-    </h1>
+    <p class="hero__kicker">Custom tattoo studio, Jacksonville FL</p>
+
+    <h1 class="hero__word flashtype"><span>Firstmind</span></h1>
 
     <p class="lede">Every piece starts as a drawing. Consultations are free.</p>
 
@@ -405,7 +397,6 @@
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__lockup">
-        <svg class="foot__mark" aria-hidden="true"><use href="#fm-mark"></use></svg>
         <img class="foot__word" src="assets/img/logo/lockup-flash.webp"
              alt="Firstmind Custom Tattoo" width="1500" height="557" loading="lazy">
         <span>Jacksonville, Florida</span>

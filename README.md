@@ -43,6 +43,7 @@ real work:
 | File | Where it is used |
 | --- | --- |
 | `flash-green.webp` | drifting flash field behind the hero |
+| `flash-ink.webp` | clipped inside the hero wordmark |
 | `design-desk.webp` | "Draw" cell in the process grid |
 | `sterile-flatlay.webp` | "Set up" cell in the process grid |
 | `corridor.webp` | studio section |
@@ -55,14 +56,14 @@ transparent PNG alpha so they sit on any background.
 
 | File | Notes |
 | --- | --- |
-| `lockup-flash.webp` | **primary.** Wordmark, green rule, CUSTOM TATTOO. Used in the hero and the footer |
+| `lockup-flash.webp` | **primary.** Wordmark, green rule, CUSTOM TATTOO. Used in the header and the footer |
 | `wordmark-flash.webp` | wordmark alone, dense fill |
 | `wordmark-outline.webp` | heavy outline, one motif per letter. The variant that survives shrinking best |
 | `emblem-flash.webp` | FM in a green ring |
 
-These are raster and only work large. For the nav and the favicon the site uses
-`assets/img/logo.svg` and `favicon.svg`, an FM monogram drawn as vector outlines
-in Anton's proportions so it stays sharp and legible down to 16px.
+These are raster and only work large. The favicon cannot use one, so
+`assets/img/favicon.svg` (and the standalone `assets/img/logo.svg`) keep an FM
+monogram drawn as vector outlines in Anton's proportions, sharp down to 16px.
 
 The letters in the generated logos carry small illegible marks inside the flash
 texture, an artifact of image generation. They read as linework at size. If the
