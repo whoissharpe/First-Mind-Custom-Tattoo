@@ -162,29 +162,49 @@ p { margin: 0; max-width: 62ch; }
 }
 .nav__pill {
   pointer-events: auto;
-  display: flex; align-items: center; gap: clamp(.6rem, 2vw, 2rem);
-  height: 64px; padding: 0 .55rem 0 1rem;
+  display: flex; align-items: center;
+  height: 78px; padding: 0 .7rem 0 1.5rem;
   border-radius: 999px;
-  background: rgba(14, 15, 17, .55);
-  box-shadow: inset 0 0 0 1px var(--line), 0 22px 60px rgba(0, 0, 0, .5);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  transition: background .6s var(--ease);
+  background: rgba(13, 14, 16, .62);
+  box-shadow: inset 0 0 0 1px var(--line), 0 24px 64px rgba(0, 0, 0, .55);
+  backdrop-filter: blur(22px) saturate(170%);
+  -webkit-backdrop-filter: blur(22px) saturate(170%);
+  transition: background .6s var(--ease), box-shadow .6s var(--ease);
 }
-body.is-scrolled .nav__pill { background: rgba(14, 15, 17, .88); }
+body.is-scrolled .nav__pill {
+  background: rgba(13, 14, 16, .9);
+  box-shadow: inset 0 0 0 1px var(--line-2), 0 24px 64px rgba(0, 0, 0, .6);
+}
 
+/* The logo is sized by height, not width, so it always keeps the same air
+   above and below inside the pill whatever the artwork's aspect ratio is. */
 .brand { display: flex; align-items: center; text-decoration: none; flex: none; }
-.brand img { width: clamp(120px, 13vw, 165px); height: auto; }
+.brand img { height: 44px; width: auto; }
 
-.nav__links { display: flex; gap: clamp(.75rem, 1.6vw, 1.6rem); }
+/* hairline that separates the identity from the navigation */
+.nav__rule {
+  width: 1px; align-self: stretch; margin: 1.5rem 1.6rem;
+  background: var(--line-2); flex: none;
+}
+
+.nav__links { display: flex; align-items: center; gap: clamp(.9rem, 1.8vw, 1.75rem); }
 .nav__links a {
   text-decoration: none; font-size: .875rem; font-weight: 500;
   color: var(--fg-2); white-space: nowrap;
+  position: relative; padding: .3rem 0;
   transition: color .35s var(--ease);
 }
+.nav__links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 1px; background: var(--green);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .45s var(--ease);
+}
 .nav__links a:hover { color: var(--fg); }
-.nav .btn { padding: .45rem .45rem .45rem 1.15rem; font-size: .875rem; }
-.nav .btn__ico { width: 1.85rem; height: 1.85rem; font-size: .9rem; }
+.nav__links a:hover::after { transform: scaleX(1); }
+
+.nav .btn { margin-left: clamp(1rem, 2.5vw, 2rem); padding: .5rem .5rem .5rem 1.25rem; font-size: .875rem; }
+.nav .btn__ico { width: 1.95rem; height: 1.95rem; font-size: .9rem; }
 
 .burger {
   display: none; width: 42px; height: 42px; flex: none;
@@ -228,9 +248,10 @@ body.menu-open .sheet a:nth-child(4) { transition-delay: .24s; }
 body.menu-open .sheet a:nth-child(5) { transition-delay: .30s; }
 
 @media (max-width: 900px) {
-  .nav__links, .nav .btn { display: none; }
+  .nav__links, .nav .btn, .nav__rule { display: none; }
   .burger { display: block; }
-  .nav__pill { width: 100%; justify-content: space-between; }
+  .nav__pill { width: 100%; justify-content: space-between; height: 70px; padding: 0 .6rem 0 1.15rem; }
+  .brand img { height: 38px; }
 }
 
 /* ============================ hero ======================================= */
