@@ -44,9 +44,9 @@ real work:
 | --- | --- |
 | `flash-green.webp` | drifting flash field behind the hero |
 | `flash-ink.webp` | clipped inside the hero wordmark |
-| `design-desk.webp` | "Draw" cell in the process grid |
+| `stencil-lightbox.webp` | "Draw" cell in the process grid |
 | `sterile-flatlay.webp` | "Set up" cell in the process grid |
-| `corridor.webp` | studio section |
+| `studio-station.webp` | studio section |
 | `hero-studio.webp` | social share card only (`og:image`) |
 
 ## Logo
