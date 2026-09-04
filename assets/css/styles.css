@@ -286,14 +286,19 @@ body.menu-open .sheet a:nth-child(5) { transition-delay: .30s; }
   line-height: .82; letter-spacing: -.008em; text-transform: uppercase;
   overflow: hidden; padding-bottom: .04em;
 }
-.hero__word span {
+/* Traditional flash art multiplied onto bone and clipped inside the letters.
+   Shared by the hero wordmark and the footer lockup so both read as one logo. */
+.flashtype > span {
   display: block;
   background-image: url("../img/gen/flash-ink.webp"), linear-gradient(#f0ece1, #f0ece1);
-  background-size: clamp(200px, 19vw, 330px) auto, auto;
+  background-size: var(--flash-tile, 220px) auto, auto;
   background-repeat: repeat, no-repeat;
   background-blend-mode: multiply, normal;
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
+}
+.hero__word { --flash-tile: clamp(200px, 19vw, 330px); }
+.hero__word > span {
   transform: translateY(104%);
   animation: rise 1.25s var(--ease-out) .18s forwards, ink 70s linear infinite .18s;
 }
@@ -302,10 +307,8 @@ body.menu-open .sheet a:nth-child(5) { transition-delay: .30s; }
 
 /* if the browser cannot clip a background to text, ship solid bone type */
 @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
-  .hero__word span {
-    background: none; color: #f0ece1; -webkit-text-fill-color: #f0ece1;
-    animation: rise 1.25s var(--ease-out) .18s forwards;
-  }
+  .flashtype > span { background: none; color: #f0ece1; -webkit-text-fill-color: #f0ece1; }
+  .hero__word > span { animation: rise 1.25s var(--ease-out) .18s forwards; }
 }
 
 .hero .lede, .hero .cta-row { opacity: 0; animation: lift .95s var(--ease-out) .5s forwards; }
@@ -519,12 +522,23 @@ body.menu-open .sheet a:nth-child(5) { transition-delay: .30s; }
 /* ============================ footer ===================================== */
 
 .foot { padding: clamp(3rem, 6vw, 5rem) var(--shell) 2.5rem; border-top: 1px solid var(--line); background: var(--ink-2); }
-.foot__top { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center; }
-.foot__mark { display: flex; align-items: center; gap: 1rem; }
-.foot__mark svg { width: 64px; height: 64px; flex: none; }
-.foot__lockup { display: grid; gap: .3rem; }
-.foot__lockup b { font-family: "Archivo", sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: .18em; text-transform: uppercase; line-height: 1; }
-.foot__lockup span { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-3); }
+.foot__top { display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: space-between; align-items: flex-end; }
+.foot__lockup { display: grid; gap: .55rem; justify-items: start; }
+.foot__mark { width: 52px; height: 52px; }
+.foot__lockup b {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: clamp(2.9rem, 7.5vw, 5.4rem); letter-spacing: .005em;
+  text-transform: uppercase; line-height: .88;
+  --flash-tile: clamp(120px, 9vw, 190px);
+}
+.foot__lockup > span { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
+
+/* below this the wordmark is too small to carry the flash fill, so it goes solid */
+@media (max-width: 700px) {
+  .foot__lockup b.flashtype > span {
+    background: none; color: #f0ece1; -webkit-text-fill-color: #f0ece1;
+  }
+}
 .foot__bot { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .foot__bot p, .foot__bot a { font-size: .82rem; color: var(--fg-3); text-decoration: none; }
 .foot__bot a:hover { color: var(--fg); }
@@ -550,7 +564,7 @@ body.menu-open .sheet a:nth-child(5) { transition-delay: .30s; }
   }
   .hero__field, .hero__veil, .hero__inner { animation: none; transform: none; opacity: 1; }
   .hero__field { opacity: .16; }
-  .hero__word span { transform: none; animation: none; }
+  .hero__word > span { transform: none; animation: none; }
   .hero__kicker, .hero .lede, .hero .cta-row { opacity: 1; }
   .strip__track { animation: none; }
   .rise { opacity: 1; transform: none; filter: none; }
