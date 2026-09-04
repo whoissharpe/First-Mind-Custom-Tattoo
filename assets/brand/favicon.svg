@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FIRSTMIND">
+  <!-- PLACEHOLDER MARK — replace with the shop's real logo (see assets/brand/README.md) -->
+  <rect x="2" y="2" width="60" height="60" rx="3" fill="#0B0A09" stroke="#D4551E" stroke-width="2"/>
+  <rect x="8" y="8" width="48" height="48" rx="1" fill="none" stroke="#F5F1EA" stroke-width="1" opacity=".25"/>
+  <text x="32" y="41.5" text-anchor="middle"
+        font-family="Oswald, 'Haettenschweiler', 'Arial Narrow', sans-serif"
+        font-size="26" font-weight="700" letter-spacing="1" fill="#F5F1EA">FM</text>
+</svg>
