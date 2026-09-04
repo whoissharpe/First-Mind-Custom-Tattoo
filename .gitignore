@@ -1,6 +1,7 @@
 # working folders at the repo root only, not assets/img/gen
 *.log
 .DS_Store
+.wrangler/
 /gen/
 /raw/
 Thumbs.db
