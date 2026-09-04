@@ -267,52 +267,20 @@ body.menu-open .sheet a:nth-child(5) { transition-delay: .30s; }
 
 .hero__inner { position: relative; width: 100%; max-width: 1360px; margin-inline: auto; }
 
-.hero__kicker {
-  display: flex; align-items: center; gap: .75rem;
-  font-size: .74rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: .22em;
-  color: var(--fg-2);
-  margin: 0 0 clamp(1.25rem, 2.5vw, 2rem);
-  opacity: 0; animation: lift .9s var(--ease-out) .1s forwards;
-}
-.hero__mark { width: 30px; height: 30px; flex: none; }
-@media (max-width: 560px) { .hero__kicker { font-size: .66rem; letter-spacing: .14em; } }
-
-/* the wordmark: flash art multiplied onto bone, clipped inside the letters */
+/* the logo lockup carries the hero, so it is the h1 */
 .hero__word {
-  margin: 0;
-  font-family: "Anton", sans-serif; font-weight: 400;
-  font-size: clamp(3.6rem, 15.5vw, 15rem);
-  line-height: .82; letter-spacing: -.008em; text-transform: uppercase;
-  overflow: hidden; padding-bottom: .04em;
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+  overflow: hidden; padding-bottom: .5rem;
 }
-/* Traditional flash art multiplied onto bone and clipped inside the letters.
-   Shared by the hero wordmark and the footer lockup so both read as one logo. */
-.flashtype > span {
-  display: block;
-  background-image: url("../img/gen/flash-ink.webp"), linear-gradient(#f0ece1, #f0ece1);
-  background-size: var(--flash-tile, 220px) auto, auto;
-  background-repeat: repeat, no-repeat;
-  background-blend-mode: multiply, normal;
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent; color: transparent;
-}
-.hero__word { --flash-tile: clamp(200px, 19vw, 330px); }
-.hero__word > span {
+.hero__word img {
+  width: min(100%, 44rem); height: auto;
   transform: translateY(104%);
-  animation: rise 1.25s var(--ease-out) .18s forwards, ink 70s linear infinite .18s;
+  animation: rise 1.25s var(--ease-out) .18s forwards;
 }
 @keyframes rise { to { transform: none; } }
-@keyframes ink { to { background-position: 300px 300px, 0 0; } }
-
-/* if the browser cannot clip a background to text, ship solid bone type */
-@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
-  .flashtype > span { background: none; color: #f0ece1; -webkit-text-fill-color: #f0ece1; }
-  .hero__word > span { animation: rise 1.25s var(--ease-out) .18s forwards; }
-}
 
 .hero .lede, .hero .cta-row { opacity: 0; animation: lift .95s var(--ease-out) .5s forwards; }
-.hero .lede { margin-top: clamp(1.25rem, 2.4vw, 2rem); }
+
 .hero .cta-row { animation-delay: .62s; margin-top: 2rem; }
 @keyframes lift { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 
@@ -523,22 +491,11 @@ body.menu-open .sheet a:nth-child(5) { transition-delay: .30s; }
 
 .foot { padding: clamp(3rem, 6vw, 5rem) var(--shell) 2.5rem; border-top: 1px solid var(--line); background: var(--ink-2); }
 .foot__top { display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: space-between; align-items: flex-end; }
-.foot__lockup { display: grid; gap: .55rem; justify-items: start; }
+.foot__lockup { display: grid; gap: .9rem; justify-items: start; }
 .foot__mark { width: 52px; height: 52px; }
-.foot__lockup b {
-  font-family: "Anton", sans-serif; font-weight: 400;
-  font-size: clamp(2.9rem, 7.5vw, 5.4rem); letter-spacing: .005em;
-  text-transform: uppercase; line-height: .88;
-  --flash-tile: clamp(120px, 9vw, 190px);
-}
+.foot__word { width: min(100%, 26rem); height: auto; }
 .foot__lockup > span { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--fg-3); }
 
-/* below this the wordmark is too small to carry the flash fill, so it goes solid */
-@media (max-width: 700px) {
-  .foot__lockup b.flashtype > span {
-    background: none; color: #f0ece1; -webkit-text-fill-color: #f0ece1;
-  }
-}
 .foot__bot { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .foot__bot p, .foot__bot a { font-size: .82rem; color: var(--fg-3); text-decoration: none; }
 .foot__bot a:hover { color: var(--fg); }
@@ -564,8 +521,8 @@ body.menu-open .sheet a:nth-child(5) { transition-delay: .30s; }
   }
   .hero__field, .hero__veil, .hero__inner { animation: none; transform: none; opacity: 1; }
   .hero__field { opacity: .16; }
-  .hero__word > span { transform: none; animation: none; }
-  .hero__kicker, .hero .lede, .hero .cta-row { opacity: 1; }
+  .hero__word img { transform: none; animation: none; }
+  .hero .lede, .hero .cta-row { opacity: 1; }
   .strip__track { animation: none; }
   .rise { opacity: 1; transform: none; filter: none; }
 }
