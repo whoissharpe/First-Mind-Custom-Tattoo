@@ -14,8 +14,18 @@ python -m http.server 4173
 
 ## Deploying
 
-Any static host works. For GitHub Pages, push to `main` and set Pages to serve from
-the repository root.
+Pushing to `main` deploys automatically. The repo is connected to Cloudflare Pages
+(project `firstmind-tattoo`), which builds from the repository root with no build
+command and publishes to:
+
+**https://firstmind-tattoo.pages.dev**
+
+Pull requests get their own preview URL. GitHub Pages also serves the same commit
+at https://whoissharpe.github.io/First-Mind-Custom-Tattoo/ as a fallback.
+
+Note that GitHub Pages sends `Cache-Control: max-age=600` on assets, which is why
+`styles.css` and `main.js` carry a `?v=` query. Bump it when you change either
+file or returning visitors can render new HTML against an old stylesheet.
 
 ## Brand
 
