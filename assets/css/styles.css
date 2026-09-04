@@ -360,22 +360,31 @@ body.menu-open .sheet a:nth-child(5) { transition-delay: .30s; }
 
 /* ============================ marquee ==================================== */
 
+/* A quiet capability band. It sits between the hero and the studio section and
+   should not compete with the Anton display type on either side, so it is set in
+   the body face, small and widely tracked, with the rule doing the structure. */
 .strip {
   border-block: 1px solid var(--line);
-  background: var(--ink-2);
-  overflow: hidden; padding: 1.35rem 0;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  background: linear-gradient(180deg, rgba(243, 243, 240, .022), transparent);
+  overflow: hidden; padding: 1.15rem 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
-.strip__track { display: flex; width: max-content; animation: slide 46s linear infinite; }
-.strip ul { display: flex; align-items: center; gap: 2.6rem; margin: 0; padding: 0 1.3rem; list-style: none; }
+.strip__track { display: flex; width: max-content; animation: slide 58s linear infinite; }
+.strip ul { display: flex; align-items: center; gap: 3.2rem; margin: 0; padding: 0 1.6rem; list-style: none; }
 .strip li {
-  display: flex; align-items: center; gap: 2.6rem;
-  font-family: "Anton", sans-serif; text-transform: uppercase;
-  font-size: clamp(1rem, 1.7vw, 1.4rem); letter-spacing: .07em;
-  color: var(--fg-2); white-space: nowrap;
+  display: flex; align-items: center; gap: 3.2rem;
+  font-family: "Archivo", sans-serif; font-weight: 500;
+  text-transform: uppercase;
+  font-size: clamp(.72rem, .9vw, .84rem); letter-spacing: .28em;
+  color: var(--fg-3); white-space: nowrap;
+  transition: color .5s var(--ease);
 }
-.strip li::after { content: ""; width: 7px; height: 7px; flex: none; background: var(--green); transform: rotate(45deg); }
+.strip:hover li { color: var(--fg-2); }
+.strip li::after {
+  content: ""; width: 4px; height: 4px; flex: none; border-radius: 999px;
+  background: var(--green); opacity: .8;
+}
 @keyframes slide { to { transform: translateX(-50%); } }
 
 /* ============================ studio ===================================== */
