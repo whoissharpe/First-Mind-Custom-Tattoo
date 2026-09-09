@@ -554,6 +554,7 @@ body.menu-open .sheet a:nth-child(5) { transition-delay: .30s; }
 .contact__block span { font-size: .72rem; text-transform: uppercase; letter-spacing: .18em; color: var(--fg-3); }
 .contact__block a, .contact__block p { font-size: 1.05rem; text-decoration: none; color: var(--fg); }
 .contact__block a:hover { color: var(--green); }
+.contact__block .areas { font-size: .92rem; color: var(--fg-2); line-height: 1.6; max-width: 34ch; }
 .socials { display: flex; gap: .55rem; margin-top: .4rem; }
 .socials a { display: grid; place-items: center; width: 2.7rem; height: 2.7rem; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line-2); font-size: 1.15rem; text-decoration: none; transition: background .4s var(--ease), color .4s var(--ease); }
 .socials a:hover { background: rgba(140, 198, 63, .22); color: var(--green-hi); box-shadow: inset 0 0 0 1px rgba(140, 198, 63, .55); }
