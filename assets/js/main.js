@@ -5,6 +5,11 @@
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+  /* Content is visible by default. Only once this script is running do the
+     reveal styles apply, so a script error or a blocked file can never leave
+     the page showing empty black sections. */
+  document.documentElement.classList.add("js");
+
   /* ---------- year ------------------------------------------------------- */
   var yr = document.getElementById("yr");
   if (yr) yr.textContent = new Date().getFullYear();
@@ -30,11 +35,19 @@
     }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
+        /* Reveal on intersection, but also for anything already scrolled past.
+           An anchor jump can carry the viewport over a section without ever
+           crossing its threshold, which used to leave it stuck at opacity 0. */
+        if (!e.isIntersecting && e.boundingClientRect.top > 0) return;
         e.target.classList.add("in");
         io.unobserve(e.target);
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    /* threshold must stay 0. A ratio threshold is a fraction of the TARGET's own
+       size, so any element taller than roughly 8x the viewport can never reach
+       0.12 and would never reveal. The gallery is 5759px on a phone: at 375x667
+       its maximum possible ratio is 0.116, and it stayed invisible forever.
+       rootMargin does the timing instead, independent of element height. */
+    }, { threshold: 0, rootMargin: "0px 0px -12% 0px" });
     Array.prototype.forEach.call(items, function (el) { io.observe(el); });
   })();
 

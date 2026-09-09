@@ -574,7 +574,7 @@ body.menu-open .sheet a:nth-child(5) { transition-delay: .30s; }
 
 /* ============================ scroll reveal ============================== */
 
-.rise { opacity: 0; transform: translateY(34px); filter: blur(6px); }
+.js .rise { opacity: 0; transform: translateY(34px); filter: blur(6px); }
 .rise.in {
   opacity: 1; transform: none; filter: blur(0);
   transition: opacity .9s var(--ease-out), transform .9s var(--ease-out), filter .9s var(--ease-out);
@@ -596,5 +596,5 @@ body.menu-open .sheet a:nth-child(5) { transition-delay: .30s; }
   .hero__word > span { transform: none; animation: none; }
   .hero__kicker, .hero .lede, .hero .cta-row { opacity: 1; }
   .strip__track { animation: none; }
-  .rise { opacity: 1; transform: none; filter: none; }
+  .js .rise { opacity: 1; transform: none; filter: none; }
 }
